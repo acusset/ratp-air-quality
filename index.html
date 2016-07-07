@@ -6,16 +6,68 @@
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
-<div class="container">
-    <h1>Hello</h1>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Qualité de l'air à la station Franklin Roosevelt le 31 décembre 2015</a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-xs-12 col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Température</div>
+                <div class="panel-body">
+                    <canvas id="tempChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12 col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Composition de l'air</div>
+                <div class="panel-body">
+                    <canvas id="airChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12 col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Humidité</div>
+                <div class="panel-body">
+                    <canvas id="humiChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12 col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">CO2</div>
+                <div class="panel-body">
+                    <canvas id="co2Chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/moment-with-locales.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js"></script>
 <script type="text/javascript" src="js/underscore.js"></script>
 <script type="text/javascript" src="js/backbone.js"></script>
-<script type="text/javascript" src="app.js"></script>
 <!-- URL : http://data.ratp.fr/api/records/1.0/search/?dataset=qualite-de-lair-mesuree-dans-la-station-chatelet&rows=10&start=1 -->
+
+<script type="text/javascript" src="app/models/record.js"></script>
+<script type="text/javascript" src="app/collections/records.js"></script>
+<script type="text/javascript" src="app.js"></script>
+
+<script type="text/template" id="record-view">
+
+</script>
+
 </body>
 </html>
