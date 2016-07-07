@@ -11,7 +11,7 @@ window.Records = Backbone.Collection.extend({
     model: Record,
 
     url: function () {
-        return 'http://data.ratp.fr/api/records/1.0/search/?dataset=qualite-de-lair-mesuree-dans-la-station-franklin-d-roosevelt&rows=24&facet=date&refine.date=' + this.date();
+        return 'https://data.ratp.fr/api/records/1.0/search/?dataset=qualite-de-lair-mesuree-dans-la-station-franklin-d-roosevelt&rows=24&facet=date&refine.date=' + this.date();
     },
 
     parse: function (response) {
