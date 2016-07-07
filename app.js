@@ -8,28 +8,28 @@ $(document).ready(function () {
     var records = new Records();
     records.fetch({
         success: function () {
-            var dataSetTemp = _.map(records.models, function (element, index, list) {
+            var dataSetTemp = _.map(records.models, function (element) {
                 return element.get("temp");
             });
 
-            var dataSetNo = _.map(records.models, function (element, index, list) {
+            var dataSetNo = _.map(records.models, function (element) {
                 return element.get("no");
             });
-            var dataSetNo2 = _.map(records.models, function (element, index, list) {
+            var dataSetNo2 = _.map(records.models, function (element) {
                 return element.get("no2");
             });
-            var dataSetCo2 = _.map(records.models, function (element, index, list) {
+            var dataSetCo2 = _.map(records.models, function (element) {
                 return element.get("co2");
             });
-            var dataSetPm10 = _.map(records.models, function (element, index, list) {
+            var dataSetPm10 = _.map(records.models, function (element) {
                 return element.get("pm10");
             });
 
-            var dataSetHumi = _.map(records.models, function (element, index, list) {
+            var dataSetHumi = _.map(records.models, function (element) {
                 return element.get("humi");
             });
 
-            var labelsSet = _.map(records.models, function (element, index, list) {
+            var labelsSet = _.map(records.models, function (element) {
                 return element.get("datetime").format('H:mm');
             });
 
@@ -56,19 +56,19 @@ $(document).ready(function () {
                         pointHoverBorderWidth: 2,
                         pointRadius: 1,
                         pointHitRadius: 10,
-                        data: dataSetTemp,
+                        data: dataSetTemp
                     }
                 ]
             };
 
-            var myTempChart = new Chart(ctx, {
+            new Chart(ctx, {
                 type: 'line',
                 data: data
             });
 
             // Qualité de l'air
-            var ctx = $("#airChart");
-            var data = {
+            ctx = $("#airChart");
+            data = {
                 labels: labelsSet,
                 datasets: [
                     {
@@ -86,7 +86,7 @@ $(document).ready(function () {
                         pointHoverBorderWidth: 2,
                         pointRadius: 1,
                         pointHitRadius: 10,
-                        data: dataSetPm10,
+                        data: dataSetPm10
                     },
                     {
                         label: "NO",
@@ -103,7 +103,7 @@ $(document).ready(function () {
                         pointHoverBorderWidth: 2,
                         pointRadius: 1,
                         pointHitRadius: 10,
-                        data: dataSetNo,
+                        data: dataSetNo
                     },
                     {
                         label: "NO2",
@@ -120,17 +120,17 @@ $(document).ready(function () {
                         pointHoverBorderWidth: 2,
                         pointRadius: 1,
                         pointHitRadius: 10,
-                        data: dataSetNo2,
-                    },
+                        data: dataSetNo2
+                    }
                 ]
             };
-            var myTempChart = new Chart(ctx, {
+            new Chart(ctx, {
                 type: 'line',
                 data: data
             });
 
-            var ctx = $("#humiChart");
-            var data = {
+            ctx = $("#humiChart");
+            data = {
                 labels: labelsSet,
                 datasets: [
                     {
@@ -152,18 +152,18 @@ $(document).ready(function () {
                         pointHoverBorderWidth: 2,
                         pointRadius: 1,
                         pointHitRadius: 10,
-                        data: dataSetHumi,
+                        data: dataSetHumi
                     }
                 ]
             };
 
-            var myTempChart = new Chart(ctx, {
+            new Chart(ctx, {
                 type: 'line',
                 data: data
             });
 
-            var ctx = $("#co2Chart");
-            var data = {
+            ctx = $("#co2Chart");
+            data = {
                 labels: labelsSet,
                 datasets: [
                     {
@@ -185,28 +185,15 @@ $(document).ready(function () {
                         pointHoverBorderWidth: 2,
                         pointRadius: 1,
                         pointHitRadius: 10,
-                        data: dataSetCo2,
+                        data: dataSetCo2
                     }
                 ]
             };
 
-            var myTempChart = new Chart(ctx, {
+            new Chart(ctx, {
                 type: 'line',
                 data: data
             });
-
-        },
+        }
     });
-
-
-
-
-    //http://data.ratp.fr/api/records/1.0/search/?dataset=qualite-de-lair-mesuree-dans-la-station-franklin-d-roosevelt&rows=20&sort=-date&facet=date&refine.date=2015
-
-    // $.getJSON('http://data.ratp.fr/api/records/1.0/search/?dataset=qualite-de-lair-mesuree-dans-la-station-chatelet',
-    //     function (data) {
-    //         console.log(data);
-    //     }
-    // );
-
 });
