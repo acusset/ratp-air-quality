@@ -10,11 +10,16 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Qualité de l'air à la station Franklin Roosevelt le 31 décembre 2015</a>
+            <p class="navbar-brand" id="head-title">Qualité de l'air à la station Franklin Roosevelt</p>
         </div>
     </div>
 </nav>
 <div class="container-fluid">
+    <div class="row" id="alert" style="display: none">
+        <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+            <div class="alert alert-danger" role="alert">Impossible de charger les données</div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-6 col-xs-12 col-lg-6">
             <div class="panel panel-default">
@@ -63,6 +68,7 @@
 
 <script type="text/javascript" src="app/models/record.js"></script>
 <script type="text/javascript" src="app/collections/records.js"></script>
+<script type="text/javascript" src="app/router.js"></script>
 <script type="text/javascript" src="app.js"></script>
 
 <script type="text/template" id="record-view">

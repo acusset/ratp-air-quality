@@ -3,20 +3,19 @@
  */
 window.Records = Backbone.Collection.extend({
 
-    date: function () {
-        // Selection du jour (année/mois/jour)
-        return '2015/12/31'.replace(/\//g, '%2F');
-    },
-
     model: Record,
 
     url: function () {
-        return 'https://data.ratp.fr/api/records/1.0/search/?dataset=qualite-de-lair-mesuree-dans-la-station-franklin-d-roosevelt&rows=24&facet=date&refine.date=' + this.date();
+        if(window.location.protocol != 'https:') {
+            return 'http://data.ratp.fr/api/records/1.0/search/?dataset=qualite-de-lair-mesuree-dans-la-station-franklin-d-roosevelt&rows=24&facet=date';
+        } else {
+            return 'https://data.ratp.fr/api/records/1.0/search/?dataset=qualite-de-lair-mesuree-dans-la-station-franklin-d-roosevelt&rows=24&facet=date';
+        }
     },
 
     parse: function (response) {
-        //api returns objects in the content attribute of response, need to override parse and cast
-        return _.map(response.records, function (model, id) {
+        // Parse and cast response
+        return _.map(response.records, function (model) {
             return new Record(model);
         });
     },
