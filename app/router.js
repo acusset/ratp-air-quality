@@ -38,7 +38,7 @@ var AppRouter = Backbone.Router.extend({
             records.fetch({
                 data: {'refine.date': date.format('YYYY-MM-DD')},
                 error: function () {
-                    $('#alert').display()
+                    $('#alert').css('display','')
                 },
                 success: function () {
                     $('#head-title').html('Qualité de l\'air à la station Franklin Roosevelt le ' + date.format('LL'));
